@@ -19,12 +19,29 @@ DEBUG
 .debug .options__container{
     border: 1px solid blue;
 }
+
+.debug .cta__upgrade,
+.debug .link__navigation{
+    border: 1px solid green;
+}
+
+.debug .single__album{
+    border: 1px solid yellow;
+}
+
+.debug .sidebar__navigation,
+.debug .playlist__container,
+.debug .user__container{
+    border: 1px solid orange;
+}
+
 /***********************************************
 TAG
 ***********************************************/
 body{
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
+    color: #fff;
 }
 a{
     text-decoration: none;
@@ -37,10 +54,88 @@ ID
 /***********************************************
 CLASSI
 ***********************************************/
+
+/* Sidebar */
+.sidebar__container{
+    background-color: #000000;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar__container ul{
+    list-style: none;;
+}
+.sidebar__navigation,
+.user__container{
+    flex-grow: 1;
+}
+.playlist__container{
+    flex-grow: 2;
+}
+.sidebar__navigation li img{
+    height: 30px;
+    fill: #878787;
+    vertical-align: middle;
+    display: inline-block;
+}
+.sidebar__navigation li a{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+    padding-left: 5px;
+    color: #878787;
+    font-weight: bold;
+}
+
+/* Main Container */
 .main__container{
     height: calc(100vh - 100px);
     display: flex;
+    overflow: hidden;
 }
+.content__container{
+     flex-grow: 1;
+     background-color: #141922;
+     border: 1px solid red;
+     overflow-y: scroll;
+}
+.content__container .cta__upgrade{
+    padding: 30px;
+    background-color: rgba(0,0,0,.5);
+}
+.content__container .link__navigation{
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+}
+.content__container .link__navigation a,
+.content__container .link__navigation a:hover,
+.content__container .link__navigation a:focus{
+    color: #878787;
+    line-height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 14px;
+}
+.section__album{
+    padding: 20px;
+}
+.section__album .container__album{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 0;
+    margin-right: -15px;
+}
+.section__album .single__album {
+    flex-shrink: 1;
+    /*min-width: 150px;
+    max-width: 300px;
+    min-height: 150px;
+    max-height: 300px;*/
+}
+
+/* Barra Player */
 
 .bar__container{
     background-color: #282828;
@@ -48,28 +143,38 @@ CLASSI
     height: 100px;
     display: flex;
 }
-
-.sidebar__container{
-    background-color: #000000;
-    border: 1px solid red;
-}
-
-.content__container{
-     flex-grow: 1;
-     background-color: #141922;
-     border: 1px solid red;
-}
-.content__container .cta__upgrade{
-    padding: 30px;
-    background-color: rgba(0,0,0,.5);
-}
-
 .album__container,
 .options__container{
     flex-grow: 1;
 }
 .player__container{
     flex-grow: 2;
+}
+.user__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.user__container hr{
+    margin: 10px 0;
+}
+.user__container > .download__app img{
+    height: 15px;
+    vertical-align: middle;
+}
+.user__container > .download__app span{
+    vertical-align: middle;
+    font-size: 13px;
+}
+.user__container > .user img{
+    height: 30px;
+    vertical-align: middle;
+    background-color: #808080;
+    border-radius: 50%;
+}
+.user__container > .user span{
+    vertical-align: middle;
+    line-height: 30px;
 }
 
 /* Classi Utilities */
@@ -111,9 +216,28 @@ Extra extra large:  ≥1400px
 @media screen and (max-width: 575px) {
    
     .sidebar__container{
-        width: 40px;
+        width: 80px;
+        padding: 0 5px;
     }
-    
+    .sidebar__navigation ul{
+        padding: 10px 0;
+    }
+    .sidebar__navigation .logo{
+        height: 30px;
+    }
+    .section__album .single__album{
+        width: calc(100% / 2 - 15px);
+    }
+
+    /* Barra Player */
+    .user__container > .download__app{
+        text-align: center;
+    }
+
+    /* General */
+    .hidden-xs{
+        display: none;
+    }
 
 }
 
@@ -122,6 +246,22 @@ Extra extra large:  ≥1400px
     
     .sidebar__container{
         width: 240px;
+        padding: 0 20px;
+    }
+    .sidebar__navigation ul{
+        padding: 20px 0;
+    }
+    .sidebar__navigation .logo{
+        height: 40px;
+        margin-top: 20px;
+    }
+    .section__album .single__album{
+        width: calc(100% / 2 - 15px);
+    }
+
+    /* General */
+    .hidden-sm{
+        display: none;
     }
 
 }
@@ -129,6 +269,9 @@ Extra extra large:  ≥1400px
 /* Medium */
 @media screen and (min-width: 768px) {
     
+    .section__album .single__album{
+        width: calc(100% / 4 - 15px);
+    }
 
 
 }
@@ -136,7 +279,9 @@ Extra extra large:  ≥1400px
 /* Large */
 @media screen and (min-width: 992px) {
 
-
+    .section__album .single__album{
+        width: calc(100% / 6 - 15px);
+    }
     
 }
 
