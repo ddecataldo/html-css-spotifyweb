@@ -5,10 +5,29 @@
 }
 
 /***********************************************
+DEBUG
+***********************************************/
+.debug .main__container, 
+.debug .sidebar__container, 
+.debug .content__container,
+.debug .bar__container{
+    border: 1px solid red;
+}
+
+.debug .album__container,
+.debug .player__container,
+.debug .options__container{
+    border: 1px solid blue;
+}
+/***********************************************
 TAG
 ***********************************************/
 body{
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+a{
+    text-decoration: none;
 }
 
 /***********************************************
@@ -18,3 +37,106 @@ ID
 /***********************************************
 CLASSI
 ***********************************************/
+.main__container{
+    height: calc(100vh - 100px);
+    display: flex;
+}
+
+.bar__container{
+    background-color: #282828;
+    color: #fff;
+    height: 100px;
+    display: flex;
+}
+
+.sidebar__container{
+    background-color: #000000;
+    border: 1px solid red;
+}
+
+.content__container{
+     flex-grow: 1;
+     background-color: #141922;
+     border: 1px solid red;
+}
+.content__container .cta__upgrade{
+    padding: 30px;
+    background-color: rgba(0,0,0,.5);
+}
+
+.album__container,
+.options__container{
+    flex-grow: 1;
+}
+.player__container{
+    flex-grow: 2;
+}
+
+/* Classi Utilities */
+.btn{
+    padding: 10px 40px;
+    text-transform: uppercase;
+    border-radius: 25px;
+    font-size: 13px;
+}
+.btn--white{
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+
+/***********************************************
+MEDIAQUERY
+
+X-Small:            <576px
+Small:              ≥576px
+Medium:             ≥768px
+Large:              ≥992px
+Extra large:        ≥1200px
+Extra extra large:  ≥1400px
+
+***********************************************/
+
+/* X-Small */
+@media screen and (max-width: 575px) {
+   
+    .sidebar__container{
+        width: 40px;
+    }
+    
+
+}
+
+/* Small */
+@media screen and (min-width: 576px) {
+    
+    .sidebar__container{
+        width: 240px;
+    }
+
+}
+
+/* Medium */
+@media screen and (min-width: 768px) {
+    
+
+
+}
+
+/* Large */
+@media screen and (min-width: 992px) {
+
+
+    
+}
+
