@@ -93,7 +93,6 @@ CLASSI
     display: inline-block;
     vertical-align: middle;
     line-height: 30px;
-    padding-left: 10px;
     color: #878787;
     font-weight: 400;
 }
@@ -180,11 +179,15 @@ CLASSI
 .content__container{
      flex-grow: 1;
      background-color: #141922;
-     overflow-y: scroll;
 }
 .content__container .cta__upgrade{
     padding: 30px;
     background-color: rgba(0,0,0,.5);
+    height: 79px;
+}
+.content__container .inner__content__container{
+    height: calc(100vh - 79px - 100px);
+    overflow-y: scroll;
 }
 .content__container .link__navigation{
     text-transform: uppercase;
@@ -203,6 +206,14 @@ CLASSI
 .section__album{
     padding: 20px;
 }
+.section__album h1{
+    padding-bottom: 12px;
+}
+.section__album p{
+    color: #878787;
+    font-weight: bold;
+    padding-bottom: 24px;
+}
 .section__album .container__album{
     display: flex;
     flex-wrap: wrap;
@@ -212,10 +223,19 @@ CLASSI
 }
 .section__album .single__album {
     flex-shrink: 1;
-    /*min-width: 150px;
-    max-width: 300px;
-    min-height: 150px;
-    max-height: 300px;*/
+}
+.section__album .single__album .image__album img{
+    max-width: 100%;
+}
+.section__album .single__album h3{
+    padding: 10px;
+}
+.section__album .single__album h4{
+    font-size: 14px;
+    color: #878787;
+}
+.section__album .single__album .border__radius{
+    border-radius: 50%;
 }
 
 /* Barra Player */
