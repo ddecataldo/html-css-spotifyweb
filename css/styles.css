@@ -55,10 +55,18 @@ ID
 CLASSI
 ***********************************************/
 
+/* Main Container */
+.main__container{
+    height: calc(100vh - 100px);
+    display: flex;
+    overflow: hidden;
+}
+
 /* Sidebar */
+
+/* Logo e link */
 .sidebar__container{
     background-color: #000000;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
 }
@@ -67,10 +75,13 @@ CLASSI
 }
 .sidebar__navigation,
 .user__container{
-    flex-grow: 1;
+    flex-grow: 0;
 }
 .playlist__container{
-    flex-grow: 2;
+    flex-grow: 1;
+}
+.sidebar__navigation li{
+    padding: 5px 0;
 }
 .sidebar__navigation li img{
     height: 30px;
@@ -82,21 +93,93 @@ CLASSI
     display: inline-block;
     vertical-align: middle;
     line-height: 30px;
-    padding-left: 5px;
+    padding-left: 10px;
     color: #878787;
-    font-weight: bold;
+    font-weight: 400;
 }
 
-/* Main Container */
-.main__container{
-    height: calc(100vh - 100px);
+/* Crea playlist */
+.playlist__container{
     display: flex;
+    flex-direction: column;
     overflow: hidden;
 }
+.playlist__container .title__container,
+.playlist__container .add__playlist{
+    flex-grow: 0;
+}
+.playlist__container .playlist_list{
+    flex-grow: 1;
+}
+.playlist__container .title__container,
+.playlist__container .add__playlist{
+    padding-bottom: 20px;
+}
+.playlist__container .add__playlist a,
+.playlist__container .add__playlist a:hover,
+.playlist__container .add__playlist a:focus{
+    color: #878787;
+    display: inline-block;
+}
+.playlist__container .add__playlist i{
+    background-color: #878787;
+    padding: 10px;
+    color: #000;
+    font-size:21px;
+}
+.playlist__container .playlist_list{
+    overflow-y: scroll;
+}
+.playlist__container .playlist_list a{
+    padding: 10px 0;
+    display: block;
+}
+.playlist__container .playlist_list a,
+.playlist__container .playlist_list a:hover,
+.playlist__container .playlist_list a:focus{
+    color: #878787;
+}
+.playlist__container .add__playlist span{
+    padding-left: 10px;
+    line-height: 41px;
+    display: inline-block;
+}
+
+
+/* Info utente */
+.user__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+}
+.user__container hr{
+    margin: 10px 0;
+}
+.user__container > .download__app img{
+    height: 15px;
+    vertical-align: middle;
+}
+.user__container > .download__app span{
+    vertical-align: middle;
+    font-size: 13px;
+}
+.user__container > .user img{
+    height: 30px;
+    vertical-align: middle;
+    background-color: #808080;
+    border-radius: 50%;
+}
+.user__container > .user span{
+    vertical-align: middle;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+/* Content Container */
 .content__container{
      flex-grow: 1;
      background-color: #141922;
-     border: 1px solid red;
      overflow-y: scroll;
 }
 .content__container .cta__upgrade{
@@ -142,7 +225,36 @@ CLASSI
     color: #fff;
     height: 100px;
     display: flex;
+    align-items: center;
 }
+.bar__container .album__container{
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Copertina Album */
+.bar__container .album__container .image__album img{
+    max-height: 70px;
+}
+
+.bar__container .album__container .title__album{
+    padding: 0 5px;
+}
+
+/* Barra e Pulsanti  */
+.bar__container .player__container .btn__player{
+    text-align: center;
+}
+.bar__container .player__container .btn__player i{
+    padding: 0 10px;
+}
+
+/* Comandi volume */
+.bar__container .options__container i{
+    padding: 0 5px;
+}
+
 .album__container,
 .options__container{
     flex-grow: 1;
@@ -150,32 +262,7 @@ CLASSI
 .player__container{
     flex-grow: 2;
 }
-.user__container{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-.user__container hr{
-    margin: 10px 0;
-}
-.user__container > .download__app img{
-    height: 15px;
-    vertical-align: middle;
-}
-.user__container > .download__app span{
-    vertical-align: middle;
-    font-size: 13px;
-}
-.user__container > .user img{
-    height: 30px;
-    vertical-align: middle;
-    background-color: #808080;
-    border-radius: 50%;
-}
-.user__container > .user span{
-    vertical-align: middle;
-    line-height: 30px;
-}
+
 
 /* Classi Utilities */
 .btn{
@@ -198,6 +285,10 @@ CLASSI
 }
 .text-right{
     text-align: right;
+}
+
+.text-uppercase{
+    text-transform: uppercase;
 }
 
 /***********************************************
@@ -255,6 +346,8 @@ Extra extra large:  ≥1400px
         height: 40px;
         margin-top: 20px;
     }
+
+    /* Barra Player */
     .section__album .single__album{
         width: calc(100% / 2 - 15px);
     }
@@ -269,6 +362,9 @@ Extra extra large:  ≥1400px
 /* Medium */
 @media screen and (min-width: 768px) {
     
+    
+
+    /* Barra Player */
     .section__album .single__album{
         width: calc(100% / 4 - 15px);
     }
@@ -279,6 +375,9 @@ Extra extra large:  ≥1400px
 /* Large */
 @media screen and (min-width: 992px) {
 
+
+
+    /* Barra Player */
     .section__album .single__album{
         width: calc(100% / 6 - 15px);
     }
