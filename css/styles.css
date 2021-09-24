@@ -272,8 +272,11 @@ CLASSI
 .bar__container .album__container .title__album{
     padding: 0 15px;
 }
+.bar__container .options__container {
+    justify-content: flex-end;
+}
 .bar__container .options__container i{
-    padding: 0 10px;
+    padding: 0 5px;
 }
 .bar__container .player__container .progess__bar{
     background-color: #5a5a5a;
@@ -282,6 +285,13 @@ CLASSI
     border-radius: 10px;
     display: inline-block;
     vertical-align: middle;
+}
+
+.bar__container .player__container .progess__bar .status__progess__bar {
+    height: 3px;
+    width: 60px;
+    background-color: #c1c1c1;
+    border-radius: 10px;
 }
 .bar__container .player__container span{
     vertical-align: middle;
@@ -300,7 +310,20 @@ CLASSI
     border-radius: 10px;
     display: inline-block;
     vertical-align: middle;
+    width: 40%;
 }
+.bar__container .options__container .progess__bar .status__progess__bar{
+    height: 3px;
+    width: 20px;
+    background-color: #c1c1c1;
+    border-radius: 10px;
+    position:relative;
+}
+
+.bar__container .album__container .image__album{
+    width: 20%;
+    max-width: 70px;
+} 
 
 /* Classi Utilities */
 .btn{
@@ -357,9 +380,6 @@ Extra extra large:  ≥1400px
     .section__album .single__album{
         width: calc(100% / 2 - 15px);
     }
-    .bar__container .album__container{
-        width: 30%;
-    }
     .bar__container .progess__bar{
         width: 50%;
     }
@@ -373,6 +393,10 @@ Extra extra large:  ≥1400px
     }
     .bar__container .options__container .progess__bar{
         width: 70px;
+    }
+    .bar__container .album__container,
+    .bar__container .options__container{
+        width: 30%;
     }
 
     /* General */
@@ -396,13 +420,14 @@ Extra extra large:  ≥1400px
         height: 40px;
         margin-top: 20px;
     }
-    .bar__container .album__container{
-        width: 25%;
-    }
 
     /* Barra Player */
     .section__album .single__album{
         width: calc(100% / 2 - 15px);
+    }
+    .bar__container .album__container,
+    .bar__container .options__container{
+    width: 30%;
     }
 
     /* General */
@@ -414,10 +439,10 @@ Extra extra large:  ≥1400px
 
 /* Medium */
 @media screen and (min-width: 768px) {
-    
-    
-    .bar__container .album__container{
-        width: 20%;
+
+    .bar__container .album__container,
+    .bar__container .options__container{
+        width: 25%;
     }
 
     /* Barra Player */
@@ -431,8 +456,9 @@ Extra extra large:  ≥1400px
 /* Large */
 @media screen and (min-width: 992px) {
 
-    .bar__container .album__container{
-        width: 10%;
+    .bar__container .album__container,
+    .bar__container .options__container{
+        width: 20%;
     }
 
     /* Barra Player */
