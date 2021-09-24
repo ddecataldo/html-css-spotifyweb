@@ -198,10 +198,20 @@ CLASSI
 .content__container .link__navigation a:hover,
 .content__container .link__navigation a:focus{
     color: #878787;
-    line-height: 40px;
+    line-height: 30px;
     padding-left: 15px;
     padding-right: 15px;
     font-size: 14px;
+    display: inline-block;
+}
+
+.content__container .link__navigation a:nth-child(1):after {
+    content: "";
+    background-color: #adff2f;
+    width: 35px;
+    display: block;
+    height: 2px;
+    margin: 0 auto;
 }
 .section__album{
     padding: 20px;
@@ -238,51 +248,59 @@ CLASSI
     border-radius: 50%;
 }
 
-/* Barra Player */
-
-.bar__container{
-    background-color: #282828;
-    color: #fff;
+/* Bar Container */
+.bar__container {
     height: 100px;
+    background-color: #282828;
     display: flex;
     align-items: center;
 }
-.bar__container .album__container{
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-}
-
-/* Copertina Album */
-.bar__container .album__container .image__album img{
-    max-height: 70px;
-}
-
-.bar__container .album__container .title__album{
-    padding: 0 5px;
-}
-
-/* Barra e Pulsanti  */
-.bar__container .player__container .btn__player{
+.bar__container .player__container{
+    flex-grow: 1;
+    flex-shrink: 0;
     text-align: center;
 }
-.bar__container .player__container .btn__player i{
+.bar__container .album__container,
+.bar__container .options__container{
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.bar__container .album__container .image__album img{
+    width: 100%;
+}
+.bar__container .album__container .title__album{
+    padding: 0 15px;
+}
+.bar__container .options__container i{
     padding: 0 10px;
 }
-
-/* Comandi volume */
-.bar__container .options__container i{
-    padding: 0 5px;
+.bar__container .player__container .progess__bar{
+    background-color: #5a5a5a;
+    width: 60%;
+    height: 4px;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: middle;
 }
-
-.album__container,
-.options__container{
-    flex-grow: 1;
+.bar__container .player__container span{
+    vertical-align: middle;
 }
-.player__container{
-    flex-grow: 2;
+.bar__container .btn__player i{
+    font-size: 20px;
+    vertical-align: middle;
+    padding: 0 10px;
 }
-
+.bar__container .btn__player i:nth-child(3){
+    font-size: 30px;
+}
+.bar__container .options__container .progess__bar{
+    background-color: #5a5a5a;
+    height: 4px;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
 
 /* Classi Utilities */
 .btn{
@@ -339,10 +357,22 @@ Extra extra large:  ≥1400px
     .section__album .single__album{
         width: calc(100% / 2 - 15px);
     }
+    .bar__container .album__container{
+        width: 30%;
+    }
+    .bar__container .progess__bar{
+        width: 50%;
+    }
 
     /* Barra Player */
     .user__container > .download__app{
         text-align: center;
+    }
+    .bar__container .album__container .image__album{
+        width: 30%;
+    }
+    .bar__container .options__container .progess__bar{
+        width: 70px;
     }
 
     /* General */
@@ -366,6 +396,9 @@ Extra extra large:  ≥1400px
         height: 40px;
         margin-top: 20px;
     }
+    .bar__container .album__container{
+        width: 25%;
+    }
 
     /* Barra Player */
     .section__album .single__album{
@@ -383,6 +416,9 @@ Extra extra large:  ≥1400px
 @media screen and (min-width: 768px) {
     
     
+    .bar__container .album__container{
+        width: 20%;
+    }
 
     /* Barra Player */
     .section__album .single__album{
@@ -395,7 +431,9 @@ Extra extra large:  ≥1400px
 /* Large */
 @media screen and (min-width: 992px) {
 
-
+    .bar__container .album__container{
+        width: 10%;
+    }
 
     /* Barra Player */
     .section__album .single__album{
@@ -403,4 +441,3 @@ Extra extra large:  ≥1400px
     }
     
 }
-
