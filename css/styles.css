@@ -96,6 +96,9 @@ CLASSI
     color: #878787;
     font-weight: 400;
 }
+.sidebar__navigation li a:hover span{
+    color: #fff;
+}
 
 /* Crea playlist */
 .playlist__container{
@@ -114,11 +117,13 @@ CLASSI
 .playlist__container .add__playlist{
     padding-bottom: 20px;
 }
-.playlist__container .add__playlist a,
-.playlist__container .add__playlist a:hover,
-.playlist__container .add__playlist a:focus{
+.playlist__container .add__playlist a{
     color: #878787;
     display: inline-block;
+}
+.playlist__container .add__playlist a:hover,
+.playlist__container .add__playlist a:hover span{
+    color: #fff;
 }
 .playlist__container .add__playlist i{
     background-color: #878787;
@@ -132,11 +137,10 @@ CLASSI
 .playlist__container .playlist_list a{
     padding: 10px 0;
     display: block;
-}
-.playlist__container .playlist_list a,
-.playlist__container .playlist_list a:hover,
-.playlist__container .playlist_list a:focus{
     color: #878787;
+}
+.playlist__container .playlist_list a:hover{
+    color: #fff;
 }
 .playlist__container .add__playlist span{
     padding-left: 10px;
@@ -197,14 +201,19 @@ CLASSI
 .content__container .link__navigation a,
 .content__container .link__navigation a:hover,
 .content__container .link__navigation a:focus{
-    color: #878787;
     line-height: 30px;
     padding-left: 15px;
     padding-right: 15px;
     font-size: 14px;
     display: inline-block;
 }
-
+.content__container .link__navigation a{
+    color: #878787;
+}
+.content__container .link__navigation a:hover,
+.content__container .link__navigation a:focus{
+    color:#fff;
+}
 .content__container .link__navigation a:nth-child(1):after {
     content: "";
     background-color: #adff2f;
@@ -233,9 +242,13 @@ CLASSI
 }
 .section__album .single__album {
     flex-shrink: 1;
+    position: relative;
 }
 .section__album .single__album .image__album img{
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
 }
 .section__album .single__album h3{
     padding: 10px;
@@ -248,6 +261,28 @@ CLASSI
     border-radius: 50%;
 }
 
+.image__album:hover:before {
+    content: "";
+    background-color:rgba(0,0,0,.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.image__album:hover:after{
+    content: "\f144";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    display: inline-block;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+}
+.image__album{
+    position: relative;
+}
 /* Bar Container */
 .bar__container {
     height: 100px;
@@ -293,6 +328,9 @@ CLASSI
     background-color: #c1c1c1;
     border-radius: 10px;
 }
+.bar__container .player__container .progess__bar:hover .status__progess__bar{
+    background-color: #adff2f;
+}
 .bar__container .player__container span{
     vertical-align: middle;
 }
@@ -303,6 +341,11 @@ CLASSI
 }
 .bar__container .btn__player i:nth-child(3){
     font-size: 30px;
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+}
+.bar__container .btn__player i:nth-child(3):hover{
+    transform: scale(1.2);
 }
 .bar__container .options__container .progess__bar{
     background-color: #5a5a5a;
@@ -410,7 +453,7 @@ Extra extra large:  ≥1400px
 @media screen and (min-width: 576px) {
     
     .sidebar__container{
-        width: 240px;
+        width: 300px;
         padding: 0 20px;
     }
     .sidebar__navigation ul{
